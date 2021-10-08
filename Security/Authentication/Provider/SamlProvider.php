@@ -46,11 +46,11 @@ class SamlProvider implements AuthenticationProviderInterface
                 $user->setSamlAttributes($token->getAttributes());
 
                 if ($this->eventDispatcher) {
-                    if (class_exists('\Symfony\Contracts\EventDispatcher\Event')) {
-                        $this->eventDispatcher->dispatch(new UserModifiedEvent($user), UserModifiedEvent::NAME);
-                    } else {
+                    //if (class_exists('\Symfony\Contracts\EventDispatcher\Event')) {
+                    //    $this->eventDispatcher->dispatch(new UserModifiedEvent($user), UserModifiedEvent::NAME);
+                    //} else {
                         $this->eventDispatcher->dispatch(UserModifiedEvent::NAME, new UserModifiedEvent($user));
-                    }
+                    //}
                 }
             }
 
