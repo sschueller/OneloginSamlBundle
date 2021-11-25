@@ -28,7 +28,7 @@ class SamlController extends AbstractController
         }
 
 //        $this->get('onelogin_auth')->login($session->get('_security.main.target_path'));
-        $this->get('onelogin_auth')->login($_SERVER['HTTP_REFERER']);
+        $this->get('onelogin_auth')->login($_SERVER['HTTP_REFERER'] ?? '');
     }
 
     public function metadataAction()
